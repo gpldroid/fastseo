@@ -1,28 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <!-- الصفحة الرئيسية -->
-  <url>
-    <loc>https://fastseo.site/</loc>
-    <lastmod>2026-09-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
+<?xml-stylesheet type="text/css" href="https://www.xml-sitemaps.com/css/sitemap.css"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- مثال لصفحة فرعية (قم بتعديل الرابط أو تكرار هذا الجزء لكل صفحة) -->
   <url>
-    <loc>https://fastseo.site/about</loc>
-    <lastmod>2026-09-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+       <loc>https://fastseo.site/</loc>
+       <lastmod>2026-09-10T03:00:27+00:00</lastmod>
+       <priority>1.0000</priority>
   </url>
-
-  <!-- مثال لمقال أو تدوينة -->
-  <url>
-    <loc>https://fastseo.site/blog/seo-tips</loc>
-    <lastmod>2026-09-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
 </urlset>
