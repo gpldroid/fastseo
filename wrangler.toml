@@ -1,9 +1,11 @@
 name = "fastseopro"
 main = "worker/pagespeed.js"
 compatibility_date = "2026-09-16"
+workers_dev = false
 
-# Run only the API path through Cloudflare.
-# The rest of fastseo.site continues to be served by GitHub Pages.
+# Cloudflare Worker project: fastseopro
+# GitHub repository: gpldroid/fastseo
+# GitHub Pages serves the website; Cloudflare handles only /api/*.
 [[routes]]
 pattern = "fastseo.site/api/*"
 zone_name = "fastseo.site"
