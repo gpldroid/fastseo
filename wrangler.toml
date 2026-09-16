@@ -1,0 +1,12 @@
+name = "fastseo-pagespeed"
+main = "worker/pagespeed.js"
+compatibility_date = "2026-09-16"
+
+# Run only the API path through Cloudflare.
+# The rest of fastseo.site continues to be served by GitHub Pages.
+[[routes]]
+pattern = "fastseo.site/api/*"
+zone_name = "fastseo.site"
+
+[observability]
+enabled = true
