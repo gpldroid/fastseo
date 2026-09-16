@@ -26,55 +26,65 @@
 <meta name="twitter:title" content="FastSEO — أداة فحص وتحليل المواقع">
 <meta name="twitter:description" content="فحص مجاني لسرعة الموقع وSEO وإمكانية الوصول وأفضل الممارسات مع دليل عملي للتحسين.">
 <meta name="twitter:image" content="https://fastseo.site/og-image.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://www.googleapis.com">
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/fastseo.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[{"@type":"WebApplication","@id":"https://fastseo.site/#webapp","name":"FastSEO","url":"https://fastseo.site/","description":"أداة مجانية لفحص SEO وسرعة وأداء المواقع وإمكانية الوصول وأفضل الممارسات.","applicationCategory":"DeveloperApplication","applicationSubCategory":"SEO Tool","operatingSystem":"All","inLanguage":"ar","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"عماد الدين لمراني"},"featureList":["SEO audit","Performance audit","Accessibility audit","Best practices audit","Mobile and desktop analysis","Core Web Vitals analysis"]},{"@type":"WebSite","@id":"https://fastseo.site/#website","url":"https://fastseo.site/","name":"FastSEO","description":"فحص SEO وسرعة وأداء المواقع مجاناً.","inLanguage":"ar","publisher":{"@id":"https://fastseo.site/#organization"}},{"@type":"Organization","@id":"https://fastseo.site/#organization","name":"FastSEO","url":"https://fastseo.site/","logo":{"@type":"ImageObject","url":"https://fastseo.site/og-image.svg"}}]}
 </script>
-<script src="https://cdn.tailwindcss.com"></script>
-<script>tailwind.config={darkMode:'class',theme:{extend:{fontFamily:{sans:['Cairo','sans-serif']},colors:{primary:'#2563eb',success:'#10b981',warning:'#f59e0b',danger:'#ef4444'}}}};</script>
-<style>
-body{font-family:Cairo,system-ui,sans-serif}button,a,input,select{touch-action:manipulation}.loader{width:48px;height:48px;border:4px solid #e2e8f0;border-top-color:#2563eb;border-radius:50%;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.dark .loader{border-color:#334155;border-top-color:#60a5fa}.score{width:88px;height:88px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:1.55rem;font-weight:800}.green{background:#10b981}.orange{background:#f59e0b}.red{background:#ef4444}.unknown{background:#94a3b8}.prose-fastseo h2{font-size:1.25rem;font-weight:800;margin:1rem 0}.prose-fastseo p{margin:.75rem 0;line-height:1.9}.prose-fastseo ul{list-style:disc;padding-inline-start:1.5rem;line-height:1.9}.prose-fastseo a{color:#2563eb;text-decoration:underline;text-underline-offset:3px}.dark .prose-fastseo a{color:#60a5fa}
-</style>
 </head>
-<body class="min-h-screen bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200">
-<header class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-900/95">
-<div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
-<a href="/" class="text-2xl font-extrabold text-blue-600" aria-label="FastSEO">FastSEO</a>
-<nav class="hidden gap-6 font-semibold md:flex" aria-label="التنقل الرئيسي"><a href="/">الرئيسية</a><a href="/services.html">الخدمات</a><a href="/guide.html">دليل FastSEO</a><a href="/contact.html">تواصل معنا</a></nav>
-<div class="flex items-center gap-2"><button id="langBtn" class="rounded-lg bg-slate-100 px-3 py-2 text-sm font-bold dark:bg-slate-800" type="button">EN</button><button id="themeBtn" class="rounded-lg bg-slate-100 px-3 py-2 dark:bg-slate-800" type="button" aria-label="تغيير المظهر">☾</button></div>
-</div></header>
+<body>
+<header class="header">
+<div class="container nav">
+<a href="/" class="brand" aria-label="FastSEO">FastSEO</a>
+<nav class="nav-links" aria-label="التنقل الرئيسي"><a href="/">الرئيسية</a><a href="/services.html">الخدمات</a><a href="/guide.html">دليل FastSEO</a><a href="/contact.html">تواصل معنا</a></nav>
+<div class="actions"><button id="langBtn" class="lang-btn" type="button">EN</button><button id="themeBtn" class="icon-btn" type="button" aria-label="تغيير المظهر">🌙</button></div>
+</div>
+</header>
 <main>
-<section class="relative overflow-hidden border-b border-slate-200 bg-gradient-to-br from-blue-50 via-white to-blue-50 py-16 dark:border-slate-800 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900">
-<div class="mx-auto max-w-4xl px-4 text-center">
-<p class="mb-3 font-bold text-blue-600">FastSEO Reviewer</p>
-<h1 id="heroTitle" class="mb-5 text-4xl font-extrabold leading-tight md:text-5xl">فحص وتحليل أداء موقعك باحترافية</h1>
-<p id="heroDesc" class="mx-auto mb-9 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-400">احصل على تقرير شامل حول سرعة موقعك وSEO وإمكانية الوصول باستخدام Google Lighthouse.</p>
-<form id="analyzeForm" class="rounded-2xl border border-slate-200 bg-white p-3 shadow-xl dark:border-slate-700 dark:bg-slate-900">
-<div class="flex flex-col gap-3 md:flex-row"><input id="urlInput" class="min-w-0 flex-1 rounded-xl border border-slate-200 bg-slate-50 px-4 py-4 text-left outline-none focus:border-blue-500 dark:border-slate-700 dark:bg-slate-800" dir="ltr" type="url" inputmode="url" autocomplete="url" placeholder="https://example.com" required aria-label="رابط الموقع"><select id="strategy" class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-4 font-semibold dark:border-slate-700 dark:bg-slate-800" aria-label="نوع الجهاز"><option value="mobile">📱 هاتف محمول</option><option value="desktop">🖥️ حاسوب</option></select><button id="submitBtn" class="rounded-xl bg-blue-600 px-8 py-4 font-bold text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60" type="submit">بدء الفحص</button></div>
+<section class="hero">
+<div class="container hero-inner">
+<p class="eyebrow">FastSEO Reviewer</p>
+<h1 id="heroTitle">فحص وتحليل أداء موقعك باحترافية</h1>
+<p id="heroDesc" class="hero-desc">احصل على تقرير شامل حول سرعة موقعك وSEO وإمكانية الوصول باستخدام Google Lighthouse.</p>
+<form id="analyzeForm" class="analyzer">
+<div class="analyzer-row">
+<input id="urlInput" class="field" dir="ltr" type="url" inputmode="url" autocomplete="url" placeholder="https://example.com" required aria-label="رابط الموقع">
+<select id="strategy" class="select" aria-label="نوع الجهاز"><option value="mobile">📱 هاتف محمول</option><option value="desktop">🖥️ حاسوب</option></select>
+<button id="submitBtn" class="primary-btn" type="submit">بدء الفحص</button>
+</div>
 </form>
-<p class="mt-4 text-sm text-slate-500">التحليل يعتمد على Google Lighthouse. لا نحفظ رابط الموقع الذي تقوم بفحصه.</p>
-<div id="errorMsg" class="mx-auto mt-5 hidden max-w-2xl rounded-xl border border-red-200 bg-red-50 p-4 font-semibold text-red-700 dark:border-red-900 dark:bg-red-950/40 dark:text-red-300"></div>
+<p class="privacy-note">التحليل يعتمد على Google Lighthouse. لا نحفظ رابط الموقع الذي تقوم بفحصه.</p>
+<div id="errorMsg" class="error hidden" role="alert"></div>
+</div>
+</section>
+<section id="loading" class="section loading" aria-live="polite"><div class="container"><div class="loading-card"><div class="spinner" aria-hidden="true"></div><h2>جاري تحليل الموقع…</h2><p class="muted">قد تستغرق العملية عدة ثوانٍ حسب الموقع والضغط على خدمة التحليل.</p></div></div></section>
+<section id="results" class="section results" aria-live="polite"><div class="container">
+<div class="result-head"><div><h2 class="section-title">نتائج التحليل</h2><p id="resultUrl" class="muted"></p></div><span id="resultDevice" class="device-badge"></span></div>
+<div id="scores" class="scores"></div>
+<div class="metrics">
+<article class="result-card"><h3>⚡ الأداء</h3><div id="perf"></div></article>
+<article class="result-card"><h3>🔎 SEO</h3><div id="seo"></div></article>
+<article class="result-card"><h3>♿ إمكانية الوصول</h3><div id="a11y"></div></article>
+<article class="result-card"><h3>✓ أفضل الممارسات</h3><div id="bp"></div></article>
+</div>
 </div></section>
-<section id="loading" class="hidden px-4 py-14"><div class="mx-auto max-w-lg rounded-2xl bg-white p-10 text-center shadow-sm dark:bg-slate-900"><div class="loader mx-auto mb-5"></div><h2 class="text-xl font-bold">جاري تحليل الموقع…</h2><p class="mt-2 text-slate-500">قد تستغرق العملية عدة ثوانٍ حسب الموقع والضغط على خدمة التحليل.</p></div></section>
-<section id="results" class="hidden mx-auto max-w-7xl px-4 py-12" aria-live="polite"><div class="mb-8 flex flex-col gap-3 border-b border-slate-200 pb-5 dark:border-slate-800 md:flex-row md:items-center md:justify-between"><div><h2 class="text-2xl font-extrabold">نتائج التحليل</h2><p id="resultUrl" class="mt-1 break-all text-sm text-slate-500"></p></div><span id="resultDevice" class="rounded-full bg-blue-100 px-3 py-1 text-sm font-bold text-blue-700 dark:bg-blue-950 dark:text-blue-300"></span></div><div id="scores" class="mb-10 grid grid-cols-2 gap-4 md:grid-cols-4"></div><div class="grid gap-6 md:grid-cols-2"><article class="rounded-2xl bg-white p-6 shadow-sm dark:bg-slate-900"><h3 class="mb-4 text-xl font-bold">⚡ الأداء</h3><div id="perf" class="space-y-3"></div></article><article class="rounded-2xl bg-white p-6 shadow-sm dark:bg-slate-900"><h3 class="mb-4 text-xl font-bold">🔎 SEO</h3><div id="seo" class="space-y-3"></div></article><article class="rounded-2xl bg-white p-6 shadow-sm dark:bg-slate-900"><h3 class="mb-4 text-xl font-bold">♿ إمكانية الوصول</h3><div id="a11y" class="space-y-3"></div></article><article class="rounded-2xl bg-white p-6 shadow-sm dark:bg-slate-900"><h3 class="mb-4 text-xl font-bold">✓ أفضل الممارسات</h3><div id="bp" class="space-y-3"></div></article></div></section>
-<section class="mx-auto max-w-7xl px-4 py-14"><div class="prose-fastseo rounded-2xl border border-slate-200 bg-white p-7 dark:border-slate-800 dark:bg-slate-900"><h2>أداة فحص SEO وسرعة المواقع FastSEO</h2><p>FastSEO هي أداة ويب مجانية تساعد أصحاب المواقع والمطورين ومنشئي المحتوى على فهم مؤشرات الأداء وتحسين SEO وإمكانية الوصول وأفضل الممارسات. تعتمد عملية القياس على Google Lighthouse، وتعرض النتيجة في واجهة مبسطة للهاتف والحاسوب.</p><h2>ما الذي يتم فحصه؟</h2><ul><li>الأداء ومؤشرات مثل FCP وLCP وTBT وCLS.</li><li>عناصر SEO مثل العنوان والوصف وقابلية الزحف ونصوص الروابط.</li><li>إمكانية الوصول مثل النص البديل وتباين الألوان ولغة المستند وARIA.</li><li>أفضل الممارسات مثل HTTPS وأخطاء وحدة التحكم ونسبة أبعاد الصور وDoctype.</li></ul><h2>لماذا تستخدم FastSEO؟</h2><p>تساعدك FastSEO على اكتشاف المشكلات التقنية الأساسية في صفحات الويب قبل تحسينها. يمكنك استخدام الأداة لفحص الصفحة الرئيسية أو صفحات المقالات والمنتجات والخدمات، ثم مراجعة دليل FastSEO لمعرفة معنى كل نتيجة والخطوة المناسبة لمعالجتها.</p><h2>تحسين SEO وسرعة الموقع خطوة بخطوة</h2><p>ابدأ بعنوان صفحة واضح ووصف موجز ومحتوى مفيد، ثم راجع الروابط الداخلية وقابلية الزحف وملف sitemap.xml. في جانب الأداء، قلل JavaScript غير الضروري، حسّن الصور والخطوط، وراقب مؤشرات Core Web Vitals. كما ينبغي اختبار الموقع على الهاتف والحاسوب لأن النتائج قد تختلف حسب الجهاز والشبكة.</p><h2>دليل ومصادر موثوقة</h2><p>للتعمق في تفسير النتائج وخطوات التحسين، راجع <a href="/guide.html">دليل FastSEO الكامل</a> الذي يجمع شرحاً عملياً ومراجع رسمية من Google وChrome وweb.dev. يمكن أيضاً مراجعة <a href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide" target="_blank" rel="noopener noreferrer">دليل SEO من Google Search Central</a> و<a href="https://developer.chrome.com/docs/lighthouse/" target="_blank" rel="noopener noreferrer">توثيق Lighthouse</a> و<a href="https://web.dev/articles/vitals" target="_blank" rel="noopener noreferrer">Core Web Vitals على web.dev</a>.</p><h2>أسئلة شائعة حول فحص SEO</h2><p><strong>هل FastSEO مجانية؟</strong> نعم، واجهة FastSEO متاحة مجاناً لفحص مؤشرات المواقع.</p><p><strong>هل أستطيع فحص الهاتف والحاسوب؟</strong> نعم، يمكنك اختيار Mobile أو Desktop قبل بدء التحليل.</p><p><strong>هل meta keywords تحسن ترتيب Google؟</strong> وجودها هنا للتوافق مع بعض أدوات الفحص، ولا ينبغي الاعتماد عليها كعامل ترتيب. التحسين الحقيقي يركز على جودة المحتوى، قابلية الزحف، تجربة الصفحة، الأداء والعناصر التقنية.</p><p><strong>هل النتائج ثابتة؟</strong> لا. تعتمد النتائج على جلسة Lighthouse ووقت الاختبار والجهاز والشبكة وحالة الخادم، لذلك من الأفضل مقارنة النتائج مع مرور الوقت.</p><p>تعتمد النتائج على جلسة Lighthouse، لذلك قد تختلف النتيجة باختلاف وقت الفحص والجهاز والشبكة وحالة الخادم.</p></div></section>
+<section class="section"><div class="container"><article class="content-card">
+<h2>أداة فحص SEO وسرعة المواقع FastSEO</h2>
+<p>FastSEO هي أداة ويب مجانية تساعد أصحاب المواقع والمطورين ومنشئي المحتوى على فهم مؤشرات الأداء وتحسين SEO وإمكانية الوصول وأفضل الممارسات. تعتمد عملية القياس على Google Lighthouse، وتعرض النتيجة في واجهة خفيفة وسريعة ومتوافقة مع الهاتف والحاسوب.</p>
+<h2>ما الذي يتم فحصه؟</h2>
+<ul><li>الأداء ومؤشرات مثل FCP وLCP وTBT وCLS.</li><li>عناصر SEO مثل العنوان والوصف وقابلية الزحف والروابط وCanonical.</li><li>إمكانية الوصول مثل النص البديل ولغة المستند وتباين الألوان وARIA.</li><li>أفضل الممارسات مثل HTTPS وDoctype وأبعاد الصور وأخطاء وحدة التحكم.</li></ul>
+<h2>لماذا تستخدم FastSEO؟</h2>
+<p>تساعدك الأداة على اكتشاف المشكلات التقنية الأساسية في صفحات الويب قبل تحسينها. يمكنك فحص الصفحة الرئيسية أو صفحات المقالات والمنتجات والخدمات، ثم مراجعة <a href="/guide.html">دليل FastSEO</a> لفهم النتائج ومعرفة خطوات المعالجة.</p>
+<h2>تحسين SEO وسرعة الموقع خطوة بخطوة</h2>
+<p>ابدأ بعنوان صفحة واضح ووصف مفيد ومحتوى أصلي، ثم راجع الروابط الداخلية وقابلية الزحف وملف sitemap.xml. في جانب الأداء، قلل JavaScript غير الضروري، حسّن الصور والخطوط، وراقب مؤشرات Core Web Vitals. اختبر الموقع على الهاتف والحاسوب لأن النتائج قد تختلف حسب الجهاز والشبكة وحالة الخادم.</p>
+<h2>مصادر موثوقة</h2>
+<p>للمزيد من المعلومات، راجع <a href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide" target="_blank" rel="noopener noreferrer">دليل SEO من Google Search Central</a> و<a href="https://developer.chrome.com/docs/lighthouse/" target="_blank" rel="noopener noreferrer">توثيق Lighthouse</a> و<a href="https://web.dev/articles/vitals" target="_blank" rel="noopener noreferrer">Core Web Vitals على web.dev</a>.</p>
+<h2>الأسئلة الشائعة</h2>
+<p><strong>هل FastSEO مجانية؟</strong><br>نعم، واجهة الفحص متاحة مجاناً، وتظهر النتائج التي توفرها خدمة التحليل.</p>
+<p><strong>هل يتم حفظ رابط الموقع؟</strong><br>لا تتعمد FastSEO تخزين الرابط في واجهة المستخدم. قد تمر الطلبات عبر خدمة التحليل اللازمة لتنفيذ الفحص.</p>
+<p><strong>هل نتيجة الفحص ثابتة؟</strong><br>قد تختلف النتائج بين عمليات الفحص بسبب الشبكة والجهاز وحالة الخادم ووقت الاختبار.</p>
+</article></div></section>
 </main>
-<footer class="border-t border-slate-800 bg-slate-900 py-10 text-slate-300"><div class="mx-auto grid max-w-7xl gap-8 px-4 md:grid-cols-3"><div><a href="/" class="text-2xl font-extrabold text-white">FastSEO</a><p class="mt-3 max-w-md text-sm leading-7 text-slate-400">أداة مجانية لتحليل جودة المواقع وتحسين الأداء وSEO وإمكانية الوصول.</p></div><div><h2 class="mb-3 font-bold text-white">روابط</h2><div class="space-y-2 text-sm"><a class="block hover:text-white" href="/services.html">الخدمات</a><a class="block hover:text-white" href="/guide.html">دليل FastSEO</a><a class="block hover:text-white" href="/contact.html">تواصل معنا</a></div></div><div><h2 class="mb-3 font-bold text-white">السياسات</h2><div class="space-y-2 text-sm"><a class="block hover:text-white" href="/privacy.html">سياسة الخصوصية</a><a class="block hover:text-white" href="/terms.html">شروط الاستخدام</a></div></div></div><p class="mx-auto mt-8 max-w-7xl border-t border-slate-800 px-4 pt-6 text-center text-sm text-slate-500">© 2026 FastSEO — جميع الحقوق محفوظة</p></footer>
-<script>
-(()=>{'use strict';const $=id=>document.getElementById(id),state={lang:localStorage.getItem('fastseo_lang')||'ar'},API_ENDPOINT=window.FASTSEO_API_ENDPOINT||'/api/pagespeed',translations={ar:{heroTitle:'فحص وتحليل أداء موقعك باحترافية',heroDesc:'احصل على تقرير شامل حول سرعة موقعك وSEO وإمكانية الوصول باستخدام Google Lighthouse.',scan:'بدء الفحص',scanning:'جاري الفحص…',invalid:'الرجاء إدخال رابط موقع صحيح.',server:'تعذر تنفيذ التحليل. يلزم إعداد نقطة API آمنة لخدمة PageSpeed.',mobile:'فحص الهاتف',desktop:'فحص الحاسوب'},en:{heroTitle:'Professional Website Performance Analyzer',heroDesc:'Get a clear report about speed, SEO and accessibility powered by Google Lighthouse.',scan:'Analyze now',scanning:'Analyzing…',invalid:'Please enter a valid website URL.',server:'The analysis endpoint is not available. A secure PageSpeed API endpoint is required for production.',mobile:'Mobile scan',desktop:'Desktop scan'}};
-function setTheme(){const dark=localStorage.getItem('fastseo_theme')==='dark'||(!localStorage.getItem('fastseo_theme')&&matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.classList.toggle('dark',dark);$('themeBtn').textContent=dark?'☀':'☾'}
-$('themeBtn').onclick=()=>{const dark=!document.documentElement.classList.contains('dark');document.documentElement.classList.toggle('dark',dark);localStorage.setItem('fastseo_theme',dark?'dark':'light');$('themeBtn').textContent=dark?'☀':'☾'};
-function applyLang(){const t=translations[state.lang];document.documentElement.lang=state.lang;$('heroTitle').textContent=t.heroTitle;$('heroDesc').textContent=t.heroDesc;$('submitBtn').textContent=t.scan;$('langBtn').textContent=state.lang==='ar'?'EN':'AR'}
-$('langBtn').onclick=()=>{state.lang=state.lang==='ar'?'en':'ar';localStorage.setItem('fastseo_lang',state.lang);applyLang()};
-function scoreClass(n){if(n>=90)return'green';if(n>=50)return'orange';return'red'}
-function addScore(name,score){const n=Math.round((score??0)*100);return `<div class="rounded-2xl bg-white p-5 text-center shadow-sm dark:bg-slate-900"><div class="score ${scoreClass(n)} mx-auto">${n}</div><h3 class="mt-3 font-bold">${name}</h3></div>`}
-function auditList(target,audits,ids){$(target).innerHTML=ids.map(id=>{const a=audits?.[id];if(!a)return'';const v=a.displayValue||'';return `<div class="rounded-xl border border-slate-200 p-3 dark:border-slate-700"><div class="font-bold">${a.title||id}</div><div class="mt-1 text-sm text-slate-500">${a.scoreDisplayMode==='notApplicable'?'غير مطبق':(a.score>=.9?'جيد':a.score>=.5?'يحتاج تحسين':'يحتاج معالجة')} ${v?`— ${v}`:''}</div></div>`}).join('')}
-$('analyzeForm').addEventListener('submit',async e=>{e.preventDefault();$('errorMsg').classList.add('hidden');$('results').classList.add('hidden');const raw=$('urlInput').value.trim();let url;try{url=new URL(raw);if(!/^https?:$/.test(url.protocol))throw 0}catch(_){$('errorMsg').textContent=translations[state.lang].invalid;$('errorMsg').classList.remove('hidden');return}const strategy=$('strategy').value;$('loading').classList.remove('hidden');$('submitBtn').disabled=true;$('submitBtn').textContent=translations[state.lang].scanning;try{const res=await fetch(`${API_ENDPOINT}?url=${encodeURIComponent(url.href)}&strategy=${encodeURIComponent(strategy)}`,{headers:{Accept:'application/json'}});const data=await res.json();if(!res.ok)throw new Error(data.error||translations[state.lang].server);const cats=data.lighthouseResult?.categories||{};const audits=data.lighthouseResult?.audits||{};$('resultUrl').textContent=url.href;$('resultDevice').textContent=strategy==='mobile'?translations[state.lang].mobile:translations[state.lang].desktop;$('scores').innerHTML=[['الأداء',cats.performance?.score],['SEO',cats.seo?.score],['إمكانية الوصول',cats.accessibility?.score],['أفضل الممارسات',cats['best-practices']?.score]].map(([n,s])=>addScore(n,s)).join('');auditList('perf',audits,['first-contentful-paint','largest-contentful-paint','total-blocking-time','cumulative-layout-shift']);auditList('seo',audits,['document-title','meta-description','link-text','crawlable-anchors']);auditList('a11y',audits,['image-alt','html-has-lang','color-contrast','aria-allowed-attr']);auditList('bp',audits,['is-on-https','errors-in-console','image-aspect-ratio','doctype']);$('results').classList.remove('hidden')}catch(err){$('errorMsg').textContent=err.message||translations[state.lang].server;$('errorMsg').classList.remove('hidden')}finally{$('loading').classList.add('hidden');$('submitBtn').disabled=false;$('submitBtn').textContent=translations[state.lang].scan}});
-setTheme();applyLang();
-})();
-</script>
-</body></html>
+<footer class="footer"><div class="container">FastSEO — أداة فحص وتحليل المواقع · <a href="/privacy.html">الخصوصية</a> · <a href="/terms.html">الشروط</a> · <a href="/contact.html">تواصل معنا</a><br>© 2026 عماد الدين لمراني</div></footer>
+<script src="/app.js" defer></script>
+</body>
+</html>
