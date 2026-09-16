@@ -24,18 +24,22 @@ export async function onRequestGet({ request, env }) {
   api.searchParams.set('key', apiKey);
 
   try {
-    const upstream = await fetch(api.toString(), { headers: { Accept: 'application/json' } });
+    const upstream = await fetch(api.toString(), {
+      headers: { Accept: 'application/json' },
+      signal: AbortSignal.timeout(40000)
+    });
     const body = await upstream.text();
     return new Response(body, {
       status: upstream.status,
       headers: {
         'content-type': 'application/json; charset=utf-8',
-        'cache-control': 'public, max-age=120, s-maxage=300',
+        'cache-control': 'public, max-age=60, s-maxage=180, stale-while-revalidate=60',
+        'vary': 'Accept',
         'x-content-type-options': 'nosniff'
       }
     });
-  } catch {
-    return json({ error: 'Unable to reach PageSpeed service' }, 502);
+  } catch (error) {
+    return json({ error: error?.name === 'TimeoutError' ? 'انتهت مهلة خدمة التحليل. حاول مرة أخرى.' : 'Unable to reach PageSpeed service' }, 502);
   }
 }
 
