@@ -1,4 +1,4 @@
-name = "fastseo-pagespeed"
+name = "fastseopro"
 main = "worker/pagespeed.js"
 compatibility_date = "2026-09-16"
 
